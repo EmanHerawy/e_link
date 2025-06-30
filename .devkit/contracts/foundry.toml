@@ -7,6 +7,7 @@ show_progress=true
 gas_reports = ["*"]
 
 # Defines paths for Solidity imports.
+# Defines paths for Solidity imports.
 remappings = [
     "forge-std/=lib/forge-std/src/",
     "@hourglass-monorepo/=lib/hourglass-monorepo/contracts/",
@@ -15,6 +16,8 @@ remappings = [
     "@openzeppelin/=lib/hourglass-monorepo/contracts/lib/eigenlayer-middleware/lib/openzeppelin-contracts/",
     "@openzeppelin-upgrades/=lib/hourglass-monorepo/contracts/lib/eigenlayer-middleware/lib/openzeppelin-contracts-upgradeable/",
     "@project/=../../contracts/src/",
+  '@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip/',
+  '@chainlink/contracts/=node_modules/@chainlink/contracts/',
 ]
 
 # Specifies the exact version of Solidity to use, overriding auto-detection.
