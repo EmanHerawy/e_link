@@ -1,0 +1,10 @@
+version: 0.0.2
+config:
+    project:
+        name: e_link
+        version: 0.1.0
+        context: devnet
+        project_uuid: f4fc67b6-be16-4ad7-b7d3-a8bc81de824f
+        telemetry_enabled: false
+        templateBaseUrl: https://github.com/Layr-Labs/hourglass-avs-template
+        templateVersion: v0.0.12
