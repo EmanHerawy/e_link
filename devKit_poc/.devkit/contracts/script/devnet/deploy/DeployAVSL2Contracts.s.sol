@@ -17,7 +17,12 @@ contract DeployAVSL2Contracts is Script {
         // Deploy the AVSTaskHook and CertificateVerifier contracts
         vm.startBroadcast(deployerPrivateKey);
         console.log("Deployer address:", deployer);
-
+   
+        address router;
+        bytes32 _donId;
+        uint64 _subscriptionId;
+        address _counterContract;
+    
         AVSTaskHook avsTaskHook = new AVSTaskHook();
         console.log("AVSTaskHook deployed to:", address(avsTaskHook));
 

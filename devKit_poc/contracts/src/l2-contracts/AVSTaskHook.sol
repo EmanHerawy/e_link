@@ -24,7 +24,8 @@ contract AVSTaskHook is IAVSTaskHook {
     function validateTaskResultSubmission(
         bytes32, /*taskHash*/
         IBN254CertificateVerifier.BN254Certificate memory /*cert*/
-    ) external {
+    ) external virtual{
         //TODO: Implement
+        // call counter to val
     }
 }

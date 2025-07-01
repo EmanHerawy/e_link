@@ -10,6 +10,8 @@ import {ITaskAVSRegistrar, ITaskAVSRegistrarTypes} from "@hourglass-monorepo/src
 import {IAVSTaskHook} from "@hourglass-monorepo/src/interfaces/avs/l2/IAVSTaskHook.sol";
 import {IBN254CertificateVerifier} from "@hourglass-monorepo/src/interfaces/avs/l2/IBN254CertificateVerifier.sol";
 import {HelloWorld} from "@project/HelloWorld.sol"; // Import your custom contract
+import {CounterValidationTaskHook} from "@project/CounterValidationTaskHook.sol"; // Import your custom contract
+import {Counter} from "@project/Counter.sol"; // Import your custom contract
 
 contract DeployMyContracts is Script {
     using stdJson for string;
