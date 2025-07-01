@@ -5,8 +5,7 @@ pragma solidity ^0.8.27;
 import {FunctionsClient} from "@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol";
 import {ConfirmedOwner} from "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol";
 import {FunctionsRequest} from "@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol";
-import "./AVSTaskHook.sol";
-import "../Counter.sol";
+import "./l2-contracts/AVSTaskHook.sol";
 
 /**
  * @title CounterValidationTaskHook
@@ -16,8 +15,8 @@ import "../Counter.sol";
 contract CounterValidationTaskHook is IAVSTaskHook, FunctionsClient, ConfirmedOwner {
     using FunctionsRequest for FunctionsRequest.Request;
     
-    /// @notice Counter contract instance
-    Counter public counterContract;
+    /// @notice Counter contract address
+    address public counterContractAddress;
     
     /// @notice Chainlink Functions configuration
     uint64 public subscriptionId;
@@ -198,7 +197,7 @@ contract CounterValidationTaskHook is IAVSTaskHook, FunctionsClient, ConfirmedOw
     ) FunctionsClient(router) ConfirmedOwner(msg.sender) {
         donId = _donId;
         subscriptionId = _subscriptionId;
-        counterContract = Counter(_counterContract);
+        counterContractAddress = _counterContract;
     }
     
     // ============ HOURGLASS AVS TASK HOOK FUNCTIONS ============
@@ -302,7 +301,7 @@ contract CounterValidationTaskHook is IAVSTaskHook, FunctionsClient, ConfirmedOw
         
         // Prepare function arguments
         string[] memory args = new string[](2);
-        args[0] = _addressToString(address(counterContract));
+        args[0] = _addressToString(address(counterContractAddress));
         args[1] = _uint256ToString(targetBlock);
         
         // Build Chainlink Functions request
