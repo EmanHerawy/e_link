@@ -18,12 +18,18 @@ contract DeployAVSL2Contracts is Script {
         vm.startBroadcast(deployerPrivateKey);
         console.log("Deployer address:", deployer);
    
+        address mailBox;
         address router;
         bytes32 _donId;
         uint64 _subscriptionId;
         address _counterContract;
     
-        AVSTaskHook avsTaskHook = new AVSTaskHook();
+        AVSTaskHook avsTaskHook = new AVSTaskHook( 
+            mailBox,
+          router,
+          _donId,
+          _subscriptionId,
+          _counterContract);
         console.log("AVSTaskHook deployed to:", address(avsTaskHook));
 
         BN254CertificateVerifier bn254CertificateVerifier = new BN254CertificateVerifier();
